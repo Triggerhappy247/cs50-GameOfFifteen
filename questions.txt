@@ -1,4 +1,4 @@
-0. TODO
-1. TODO
-2. TODO
-3. TODO
+0. The framework allows a maximum of 9X9 dimensions.
+1. The board is stored as a two dimensional array.
+2. greet() function is called to greet the player.
+3. I need to implement init, draw, move and won
