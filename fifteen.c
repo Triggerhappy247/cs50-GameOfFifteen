@@ -23,6 +23,16 @@
 #define DIM_MIN 3
 #define DIM_MAX 9
 
+// Condition Constants
+#define UP iTile - 1
+#define DOWN iTile + 1
+#define RIGHT jTile + 1
+#define LEFT jTile - 1
+#define LAST_TILE i == d - 1 && j == d - 1
+
+// blank space trackers
+int blankRow, blankCol;
+
 // board
 int board[DIM_MAX][DIM_MAX];
 
@@ -48,6 +58,8 @@ int main(int argc, string argv[])
 
     // ensure valid dimensions
     d = atoi(argv[1]);
+    blankRow = d - 1;
+    blankCol = d - 1;
     if (d < DIM_MIN || d > DIM_MAX)
     {
         printf("Board must be between %i x %i and %i x %i, inclusive.\n",
