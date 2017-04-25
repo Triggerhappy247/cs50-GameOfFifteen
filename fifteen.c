@@ -274,6 +274,24 @@ bool move(int tile)
  */
 bool won(void)
 {
-    // TODO
+    // Check other tiles only if
+    // Empty space is in the corner
+    int boardNum = 1;
+    for(int i = 0; i < d; i++)
+    {
+        for(int j = 0; j < d ; i++)
+        {
+            if (LAST_TILE)
+            {
+                break;
+            }
+            if (board[i][j] != boardNum++)
+            {
+                return false;
+            }
+        }
+    }
+    // if control is here then board is in winning config
+    return true;
     return false;
 }
