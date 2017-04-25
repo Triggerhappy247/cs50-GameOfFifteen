@@ -217,7 +217,54 @@ void draw(void)
  */
 bool move(int tile)
 {
-    // TODO
+    // find indices of tile by iterating
+    int iTile = -1, jTile = -1; 
+    for(int i = 0; i < d; i++)
+    {
+        for(int j = 0; j < d; j++)
+        {
+            if (board[i][j] == tile)
+            {
+                iTile = i;
+                jTile = j;
+                break;
+            }
+        }
+    }
+    // if Tile is not found return false
+    if (iTile == -1 && jTile == -1)
+    {
+        return false;
+    }
+    
+    // Check if empty space is in surrounding rows
+    if (UP == blankRow || DOWN == blankRow)
+    {
+        // Checks if Empty space is same column as tile
+        if (jTile == blankCol)
+        {   
+            board[blankRow][blankCol] = tile;
+            blankRow = iTile;
+            blankCol = jTile;
+            board[iTile][jTile] = EMPTY;
+            return true;
+        }
+    }
+    // Check if empty space is in surrounding columns
+    else if (RIGHT == blankCol || LEFT == blankCol)
+    {
+        // Checks if Empty space is same row as tile
+        if (iTile == blankRow)
+        {
+            board[blankRow][blankCol] = tile;
+            blankRow = iTile;
+            blankCol = jTile;
+            board[iTile][jTile] = EMPTY;
+            return true;
+        }
+    }
+    
+    // returns false if control reaches here
     return false;
 }
 
