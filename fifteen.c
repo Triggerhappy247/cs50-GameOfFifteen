@@ -22,6 +22,7 @@
 // constants
 #define DIM_MIN 3
 #define DIM_MAX 9
+#define EMPTY 0
 
 // Condition Constants
 #define UP iTile - 1
@@ -194,7 +195,20 @@ void init(void)
  */
 void draw(void)
 {
-    // TODO
+    // iterate through the array and print values
+    for(int i = 0; i < d; i++)
+    {
+        for(int j = 0; j < d; j++)
+        {
+            if (board[i][j] == EMPTY)
+            {
+                printf("%2c ",'_');
+                continue;
+            }
+            printf("%2d ",board[i][j]);
+        }
+        printf("\n");
+    }
 }
 
 /**
